@@ -1,6 +1,6 @@
 
 #--------------before doing this the first time, you need to download these packages. You only need to do this once.
-install.packages(c('sf', 'foreign', 'tidyverse', 'lwgeom'))
+#install.packages(c('sf', 'foreign', 'tidyverse', 'lwgeom'))
 
 
 #-------------every time you open a new R session you'll want to load in the necessary libraries.-----
@@ -16,7 +16,7 @@ options(stringsAsFactors = FALSE)
 #https://open.canada.ca/data/en/dataset/82efb454-3241-4440-a5d4-8b03a42f4df8
 
 #set the directory to work out of. You'll want this to be the folder you unzipped the files to. Make sure to use / instead of \ in the path.
-setwd("C:/Users/Erin/Documents/DataViz/Canada/")
+setwd("/Users/Zangetsu/Documents/Coding Projects/RoadColors/grnf047r09a_e")
 
 #change this to the name of the files you downloaded (sans suffix)
 filename <- "grnf047r09a_e"
@@ -65,8 +65,8 @@ blankbg <-theme(axis.line=element_blank(),axis.text.x=element_blank(),
 #depending on the city/radius you're mapping you might need to adjust the size variables below. 
 #I just do trial/error till I like the way it looks when it's saved
 ggplot() + blankbg + theme(panel.grid.major = element_line(colour = "transparent")) + 
-  geom_sf(data=otherroads, size = 1.5, aes(color=TYPE)) + 
-  geom_sf(data=allroads, size = 1.5, aes(color=TYPE)) + 
+  geom_sf(data=otherroads, size = .5, aes(color=TYPE)) + 
+  geom_sf(data=allroads, size = .5, aes(color=TYPE)) + 
   scale_color_manual(values = plotcolors, guide = FALSE) 
 
 ggsave("myplot.png", plot = last_plot(),
