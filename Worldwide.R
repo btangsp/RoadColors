@@ -1,5 +1,5 @@
 #-----------you need to install the following packages. this only needs to be done once.
-install.packages(c('sf', 'foreign', 'tidyverse', 'stringi', 'lwgeom'))
+install.packages(c('sf', 'foreign', 'tidyverse', 'stringi', 'lwgeom', 'digest'))
 
 #-----------initialize libraries. This needs to be done for each new R session 
 library(sf)
@@ -13,7 +13,7 @@ options(stringsAsFactors = FALSE)
 #pick a region and download/unzip the .shp.zip file: http://download.geofabrik.de/
 
 #-----------set the working directory to wherever you unzipped the downloaded files to
-setwd("C:/Users/Erin/Documents/DataViz/!Complete/IndivRoads/OSM_Data/London/")
+setwd("/Users/Zangetsu/Documents/Coding Projects/RoadColors/greater-london-latest-free.shp")
 
 
 #-----------set some basic info about the city you're mapping

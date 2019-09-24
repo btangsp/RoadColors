@@ -1,5 +1,5 @@
 #-----------you need to install the following packages. this only needs to be done once.
-#install.packages(c('sf', 'foreign', 'tidyverse', 'stringi', 'lwgeom'))
+#install.packages(c('sf', 'foreign', 'tidyverse', 'lwgeom'))
 
 #-------------every time you open a new R session you'll want to load in the necessary libraries.-----
 library(sf)
@@ -14,7 +14,7 @@ geoid <-  c('05000US26161')
 
 #-------import road files.----------
 files <- list.files(path="/Users/Zangetsu/Documents/Coding Projects/RoadColors/tl_2018_26161_featnames", pattern="*.dbf", full.names=TRUE, recursive=FALSE) %>% as.data.frame
-names(files) <- c("/Users/Zangetsu/Documents/Coding Projects/RoadColors/tl_2018_26161_roads")
+names(files) <- c("path")
 files$GEOID <- substr(files$path, 21, 25)
 files <- subset(files, GEOID %in% geoid)
 
@@ -28,7 +28,7 @@ for (i in 1:nrow(files)) {
   featname <- featname %>% dplyr::select(LINEARID, SUFTYPABRV) %>% unique
   
   #read in the roads shapefile as a simple features dataframe
-  roads <- read_sf("./Roads", paste0("tl_2018_", files$GEOID[i], "_roads"))
+  roads <- read_sf("/Users/Zangetsu/Documents/Coding Projects/RoadColors", paste0("tl_2018_", files$GEOID[i], "_roads"))
   roads$len <- st_length(roads)
   
   #join the two 
